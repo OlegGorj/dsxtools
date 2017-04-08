@@ -1,0 +1,7 @@
+setup.py
+dsxtools.egg-info/PKG-INFO
+dsxtools.egg-info/SOURCES.txt
+dsxtools.egg-info/dependency_links.txt
+dsxtools.egg-info/not-zip-safe
+dsxtools.egg-info/requires.txt
+dsxtools.egg-info/top_level.txt

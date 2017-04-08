@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: dsxtools
+Version: 0.1
+Summary: Helper functions to help with working with Python notebooks in Data Science Experience
+Home-page: https://github.com/gfilla/dsxtools
+Author: Greg Filla
+Author-email: gfilla@us.ibm.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
