@@ -7,5 +7,5 @@ setup(name='dsxtools',
       author='Greg Filla',
       author_email='gfilla@us.ibm.com',
       license='MIT',
-      install_requires= ['io','requests','json','pandas',],
+      install_requires= ['requests','json','pandas'],
       zip_safe=False)
