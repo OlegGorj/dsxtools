@@ -1,8 +1,8 @@
 class objectStore:
-    from io import BytesIO
-    import requests
-    import json
-    import pandas as pd
+    # from io import BytesIO
+    # import requests
+    # import json
+    # import pandas as pd
 
     def __init__(self, credentials):
         self.credentials = credentials
