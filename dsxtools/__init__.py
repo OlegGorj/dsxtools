@@ -1,1 +1,1 @@
-from objectStore import objectStore
+from dsxtools.objectStore import objectStore
