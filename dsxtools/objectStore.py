@@ -10,7 +10,7 @@ class objectStore:
         """Get's a file from the object storage container for the credentials used to create the OS object.  Returns as a ByteIO Object"""
         import requests
         import json
-        from io import BytesIO
+        from io import BytesIO, StringIO
         import pandas as pd
         credentials = self.credentials
         url1 = ''.join(['https://identity.open.softlayer.com', '/v3/auth/tokens'])
@@ -33,11 +33,11 @@ class objectStore:
         else:
             return StringIO(resp2.text)
 
-    def get_csv(self, fileName):
+    def get_csv(self, fileName, return_values=True):
         """Get's a file from the object storage container for the credentials used to create the OS object.  Returns as a ByteIO Object"""
         import requests
         import json
-        from io import BytesIO
+        from io import BytesIO, StringIO
         import pandas as pd
         credentials = self.credentials
         url1 = ''.join(['https://identity.open.softlayer.com', '/v3/auth/tokens'])
@@ -56,7 +56,7 @@ class objectStore:
         headers2 = {'X-Auth-Token': s_subject_token, 'accept': 'application/json'}
         resp2 = requests.get(url=url2, headers=headers2)
         if return_values:
-            return StringIO(resp2.text).getvalue()
+            return pd.read_csv(StringIO(resp2.text))
         else:
             return StringIO(resp2.text)
 
@@ -64,7 +64,7 @@ class objectStore:
         """Puts a csv file in object storage with default same name as existing file. The file needs to be saved to the local file system before using this method """
         import requests
         import json
-        from io import BytesIO
+        from io import BytesIO, StringIO
         import pandas as pd
         credentials = self.credentials
 
