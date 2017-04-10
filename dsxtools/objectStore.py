@@ -33,7 +33,7 @@ class objectStore:
         else:
             return StringIO(resp2.text)
 
-    def get_csv(self, fileNamex):
+    def get_csv(self, fileName):
         """Get's a file from the object storage container for the credentials used to create the OS object.  Returns as a ByteIO Object"""
         import requests
         import json
