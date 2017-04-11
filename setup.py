@@ -8,4 +8,5 @@ setup(name='dsxtools',
       author_email='gfilla@us.ibm.com',
       license='MIT',
       install_requires= ['requests','pandas'],
+      packages =['dsxtools'],
       zip_safe=False)
