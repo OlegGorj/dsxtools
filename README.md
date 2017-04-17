@@ -59,3 +59,12 @@ This is a helpful function when working with repositories of data or many CSVs t
 ```
 my_os.list_files()
 ```
+
+
+#### Using Python modules stored in Object Storage
+
+A typical workflow in DSX is to build a large module as a Python script and `import` it for use in a notebok.  To help with this, use `import_python` for Python scripts in your Object Storage container. This function saves the Python script in the working directory so you can import it in your notebook.  Prints a confirmation that the module was saved in the notebook environment.  Usage:
+
+```
+my_os.import_python(fileName = 'myModule.py')
+```
