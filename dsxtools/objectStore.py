@@ -46,6 +46,13 @@ class objectStore:
         else:
             return StringIO(resp.text)
 
+    def import_python(self, fileName, return_values= True):
+        '''Use when retrieving python scripts from object storage.  This saves the file in the notebook container and can be imported as a Python Module'''
+        f = open(fileName,'w')
+        f.write(self.get_string(fileName))
+        f.close()
+        print(fileName+ " has been saved in the current directory.  You can import or move as needed.")
+
     def get_csv(self, fileName, return_values=True):
         """Get's a file from the object storage container for the credentials used to create the OS object.  Returns as a ByteIO Object"""
         import requests
