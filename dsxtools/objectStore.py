@@ -41,6 +41,7 @@ class objectStore:
         verb = 'get'
         header, url2 = self.get_api_header(fileName, verb)
         resp = requests.get(url= url2, headers= header)
+        resp2.raise_for_status()
         if return_values:
             return StringIO(resp.text).getvalue()
         else:
@@ -61,6 +62,7 @@ class objectStore:
         verb = 'get'
         header, url2 = self.get_api_header(fileName,verb)
         resp2 = requests.get(url=url2, headers=header)
+        resp2.raise_for_status()
         if return_values:
             return pd.read_csv(StringIO(resp2.text))
         else:
@@ -90,11 +92,9 @@ class objectStore:
 
         f = open(fileName,'r')
         my_data = f.read()
+        f.close()
 
         header, url2 = self.get_api_header(fileName,verb, fname)
-        resp2 = requests.put(url=url2, headers=header, data = my_data )
-        if str(resp2)[11] == '2': # success http response
-            print("{} was successfully added to the {} container. \n Refresh the DSX notebook to see the data in the right data panel.".format(fname, credentials['container']))
-        else:
-            print(resp2)
-            print("There was a problem with your upload!")
+        resp2 = requests.put(url=url2, headers=header, data = my_data)
+        resp2.raise_for_status()
+        print("{} was successfully added to the {} container. \n To view in data panel, go to main project page and add from right sidebar.".format(fname, credentials['container']))
