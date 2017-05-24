@@ -41,7 +41,7 @@ class objectStore:
         verb = 'get'
         header, url2 = self.get_api_header(fileName, verb)
         resp = requests.get(url= url2, headers= header)
-        resp2.raise_for_status()
+        resp.raise_for_status()
         if return_values:
             return StringIO(resp.text).getvalue()
         else:
