@@ -95,6 +95,6 @@ class objectStore:
         f.close()
 
         header, url2 = self.get_api_header(fileName,verb, fname)
-        resp2 = requests.put(url=url2, headers=header, data = my_data)
+        resp2 = requests.put(url=url2, headers=header, data = my_data.encode('utf-8'))
         resp2.raise_for_status()
         print("{} was successfully added to the {} container. \n To view in data panel, go to main project page and add from right sidebar.".format(fname, credentials['container']))
